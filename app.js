@@ -13,7 +13,6 @@ menu.addEventListener('click', function () {
 // stickyNav
 const stickyNav = function (entries) {
   const [entry] = entries
-  console.log(entry)
   if (!entry.isIntersecting) nav.classList.add('sticky')
   else nav.classList.remove('sticky')
 }

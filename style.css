@@ -136,7 +136,7 @@ a {
 }
 #menu {
   font-size: 1.5rem;
-  color: var(--sec-clr);
+  color: var(--font-clr-pri);
   display: none;
 }
 .links {
