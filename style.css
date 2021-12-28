@@ -6,10 +6,13 @@
   --accent-clr-50: #244a83;
   --sec-clr: #fef8ff;
   --font-family: 'Montserrat', sans-serif;
+  --logo-font: 'Roboto', sans-serif;
+  --logo-color: #080808;
   --border-radius: 2px;
   --font-clr-pri: #13294b;
   --font-clr-sec: #878787;
-  --nav-bgc: #fffeff;
+  --nav-bgc: #fef8ff;
+  --scrollbar: #ff9b31;
 }
 
 /* notes  */
@@ -27,6 +30,29 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* smooth scroll  */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* custom scroll bar  */
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #ccc;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 10px;
 }
 
 /* utilities  */
@@ -73,8 +99,108 @@ section {
 .section-title {
   font-size: 2.5rem;
 }
+.btn {
+  padding: 0.75rem 1.5rem;
+  background-color: inherit;
+  font-size: 1.3rem;
+  font-family: var(--font-family);
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+}
+
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
 
 /* utilities end  */
+
+/* nav start  */
+
+.nav {
+  padding: 1rem 2rem;
+  justify-content: space-between;
+}
+.links {
+  justify-content: space-between;
+  gap: 2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+ul a {
+  color: var(--sec-clr);
+}
+.home {
+  width: 120px;
+}
+#menu {
+  font-size: 1.5rem;
+  color: var(--sec-clr);
+  display: none;
+}
+.links {
+  height: auto;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* sticky nav  */
+.sticky {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--font-clr-sec);
+  box-shadow: 0px 5px 5px rgba(51, 51, 51, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+/* nav end  */
+
+/* header start  */
+
+.header {
+  /* linear-gradient(
+      45deg,
+      rgba(16, 41, 75, 0.5) 0%,
+      rgba(255, 224, 102, 0.5) 100%
+    ), */
+  background-image: url('./img/banner.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.header-section {
+  padding: 10rem 0;
+  gap: 3rem;
+}
+
+.logo {
+  width: 30%;
+}
+
+.tag-line {
+  color: var(--sec-clr);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.btn-pri {
+  border: 2px solid var(--sec-clr);
+  color: var(--sec-clr);
+  transition: all 200ms ease-in-out;
+}
+
+.btn-pri:hover {
+  background-color: var(--sec-clr);
+  color: var(--pri-clr);
+}
+/* header end  */
 
 /* welcome section start  */
 
@@ -167,6 +293,7 @@ section {
   line-height: 1.7;
   font-size: 1.3rem;
   color: var(--font-clr-sec);
+  font-weight: 500;
 }
 /* about us end  */
 
@@ -341,20 +468,13 @@ input:focus {
   color: var(--sec-clr);
 }
 
-.btn {
+.btn-sec {
   border: 2px solid var(--pri-clr);
-  padding: 0.75rem 1.5rem;
-  background-color: inherit;
   color: var(--pri-clr);
-  font-size: 1.3rem;
-  font-family: var(--font-family);
-  font-weight: 700;
-  cursor: pointer;
-  border-radius: var(--border-radius);
   transition: all 200ms ease-in-out;
 }
 
-.btn:hover {
+.btn-sec:hover {
   background-color: var(--pri-clr);
   color: rgba(0, 0, 0, 0.7);
 }
@@ -443,6 +563,9 @@ input:focus {
   .welcome-section {
     grid-template-columns: repeat(2, 1fr);
   }
+  .logo {
+    width: 40%;
+  }
 }
 @media (max-width: 680px) {
   .contact-info-description {
@@ -463,15 +586,52 @@ input:focus {
   .welcome-section {
     grid-template-columns: repeat(1, 1fr);
   }
+  .home {
+    width: 80px;
+  }
+  .logo {
+    width: 50%;
+  }
+  .links {
+    height: 0;
+    display: block;
+  }
+  .show-links {
+    height: 15rem;
+  }
+  .link {
+    display: block;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .nav {
+    display: block;
+  }
+  #menu {
+    display: block;
+    cursor: pointer;
+  }
 }
 @media (max-width: 520px) {
   .contact-info-description {
     width: 90%;
   }
+  .logo {
+    width: 60%;
+  }
 }
 @media (max-width: 390px) {
   .contact-info h3 {
     font-size: 1rem;
+  }
+  .logo {
+    width: 70%;
   }
 }
 @media (max-width: 324px) {
