@@ -12,10 +12,8 @@ const initialCoords = header.getBoundingClientRect()
 
 console.log(initialCoords.y)
 
-const coords = initialCoords.y + 100
-
 window.addEventListener('scroll', () => {
-  if (window.scrollY > coords) {
+  if (window.scrollY > initialCoords.y) {
     nav.classList.add('sticky')
     link.forEach(l => (l.style.color = '#878787'))
     menu.style.color = '#878787'
